@@ -32,7 +32,8 @@ COPY --from=gobuild /tmp/release/cmd/cloudflared/cloudflared /usr/local/bin/clou
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh && \
+    mkdir /etc/cloudflared && chown cloudflared /etc/cloudflared
 
 USER cloudflared
 

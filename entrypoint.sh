@@ -2,8 +2,6 @@
 
 set -ueo pipefail
 
-mkdir /etc/cloudflared
-
 cat << EOF > /etc/cloudflared/config.yaml 
 tunnel: $CLOUDFLARED_TUNNEL_UUID
 credentials-file: /etc/cloudflared/$CLOUDFLARED_TUNNEL_UUID.json
